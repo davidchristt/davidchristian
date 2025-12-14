@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql" // Kita pakai MySQL biar siap deploy
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id          Int    @id @default(autoincrement())
+  fullName    String
+  headline    String
+  summary     String @db.Text // Text panjang
+  email       String
+  linkedin    String
+  github      String?
+  location    String
+  avatarUrl   String?
+  resumeUrl   String? 
+}
+
+model Education {
+  id          Int     @id @default(autoincrement())
+  school      String
+  degree      String
+  period      String
+  description String  @db.Text
+  imageUrl    String?
+}
+
+model Experience {
+  id          Int     @id @default(autoincrement())
+  role        String
+  company     String
+  period      String
+  type        String
+  description String  @db.Text
+  imageUrl    String?
+}
+
+model Project {
+  id          Int     @id @default(autoincrement())
+  name        String
+  role        String
+  techStack   String
+  description String  @db.Text
+  period      String
+  imageUrl    String?
+}
+
+model Organization {
+  id          Int     @id @default(autoincrement())
+  name        String
+  role        String
+  period      String
+  description String  @db.Text
+}
+
+model Skill {
+  id       Int    @id @default(autoincrement())
+  category String
+  items    String
+}
