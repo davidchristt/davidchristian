@@ -15,7 +15,7 @@ export default function HeroSection({ profile }) {
   return (
     <>
       {/* --- HERO SECTION --- */}
-      <section className="max-w-5xl mx-auto px-6 pt-12 pb-24 text-center">
+      <section className="min-h-screen flex flex-col justify-center mx-auto px-6 text-center">
         {/* Foto Profil */}
         <div className="mb-6 flex justify-center">
           <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl shadow-blue-500/20">
