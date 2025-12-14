@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql" // Kita pakai MySQL biar siap deploy
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Profile {
