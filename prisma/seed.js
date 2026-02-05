@@ -24,7 +24,7 @@ async function main() {
       github: "github.com/davidchristt",
       location: "Jakarta, Indonesia",
       avatarUrl: "/images/FOTODAVID.jpg",         
-      resumeUrl: "/documents/CV--DavidChristianNathaniel.pdf"
+      resumeUrl: "/documents/CV - David Christian Nathaniel.pdf"
     }
   })
 
