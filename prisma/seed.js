@@ -34,7 +34,7 @@ async function main() {
         school: "Universitas Padjadjaran",
         degree: "Bachelor of Informatics Engineering",
         period: "August 2023 - Present",
-        description: "Sumedang, Jawa Barat. GPA: 3.86/4.00. Active team member with strong time management and problem-solving abilities.",
+        description: "Sumedang, Jawa Barat. GPA: 3.86/4.00 Active team member with strong time management and problem-solving abilities.",
         imageUrl: "/images/unpad.png"
       }
     ]
