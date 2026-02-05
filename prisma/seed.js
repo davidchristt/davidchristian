@@ -43,6 +43,22 @@ async function main() {
   // 3. Work Experience
   await prisma.experience.createMany({
     data: [
+      { 
+        role: "Intern – Software / IT Engineering",
+        company: "Estima Industry",
+        period: "Jan 2026 - Feb 2026",
+        type: "Internship",
+        description: "Assisted in developing an internal web-based sales management system. Supported system analysis, database design, and documentation. Contributed to feature testing and data validation.",
+        imageUrl: "/images/estima.jpeg" // Pastikan file gambar ini ada
+      },
+      {
+        role: "Product Designer",
+        company: "PT Makmur Teknik",
+        period: "Jan 2026 - Present",
+        type: "Part-Time",
+        description: "Designed brand assets including logos, packaging, and UI/UX interfaces to ensure visual consistency across digital and physical products. Developed design systems and visual guidelines to support branding and product presentation. Collaborated with product and marketing teams to align design outputs with business and branding objectives.",
+        imageUrl: "/images/makmurteknik.jpg"
+      },
       {
         role: "Product Management Specialist",
         company: "PT Makmur Teknik",
@@ -65,6 +81,14 @@ async function main() {
   // 4. Projects
   await prisma.project.createMany({
     data: [
+      {
+        name: "DeQRypt",
+        role: "Blockchain Developer (Hackathon)",
+        period: "Dec 2025 - Jan 2026",
+        techStack: "Solidity, Ethereum, EVM, Web3, MetaMask",
+        description: "Designed and implemented a blockchain-based transaction flow involving user wallets, treasury management, and merchant settlement using smart contracts. Collaborated in a fast-paced team to deliver a secure Web3 solution.",
+        imageUrl: "/images/decrypt.png" // Bisa gunakan gambar project blockchain kamu
+      },
       {
         name: "Decentralized Crowdfunding (Campaign DApp)",
         role: "Blockchain Developer",

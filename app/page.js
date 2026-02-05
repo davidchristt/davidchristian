@@ -97,35 +97,66 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 3. WORK EXPERIENCE */}
+      {/* 3. WORK EXPERIENCE (LinkedIn Style Grouping) */}
       <section className="max-w-5xl mx-auto px-6 mb-24">
         <h2 className="text-3xl font-bold text-white mb-10 pl-4 border-l-4 border-blue-500">Work Experience</h2>
         <div className="space-y-12">
-          {experiences.map((exp) => (
-            <div key={exp.id} className="flex flex-col md:flex-row gap-8 bg-slate-900/20 p-6 rounded-2xl border border-slate-800/50 hover:bg-slate-900/40 transition duration-300">
+          {Object.values(
+            experiences.reduce((acc, exp) => {
+              // Kelompokkan berdasarkan nama perusahaan
+              if (!acc[exp.company]) {
+                acc[exp.company] = {
+                  company: exp.company,
+                  imageUrl: exp.imageUrl,
+                  roles: [],
+                };
+              }
+              acc[exp.company].roles.push(exp);
+              return acc;
+            }, {})
+          ).map((group, index) => (
+            <div key={index} className="flex flex-col md:flex-row gap-8 bg-slate-900/20 p-6 rounded-2xl border border-slate-800/50 hover:bg-slate-900/40 transition duration-300">
+              
+              {/* BAGIAN KIRI: Logo Perusahaan (Satu logo untuk semua role di perusahaan ini) */}
               <div className="w-full md:w-1/3 shrink-0">
                 <div className="relative h-48 w-full rounded-xl overflow-hidden shadow-lg border border-slate-700/50 bg-white p-2"> 
                   <img 
-                    src={exp.imageUrl} 
-                    alt={exp.company}
+                    src={group.imageUrl} 
+                    alt={group.company}
                     className="w-full h-full object-contain" 
                   />
                 </div>
               </div>
+
+              {/* BAGIAN KANAN: Daftar Role */}
               <div className="w-full md:w-2/3 flex flex-col justify-center">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-1">{exp.role}</h3>
-                  <div className="flex flex-wrap items-center gap-3 text-sm mb-4">
-                    <span className="text-emerald-400 font-bold">{exp.company}</span>
-                    <span className="text-slate-600">|</span>
-                    <span className="text-slate-400">{exp.period}</span>
-                    <span className="px-2 py-0.5 bg-blue-900/30 text-blue-300 text-xs rounded border border-blue-900">{exp.type}</span>
-                  </div>
+                <h3 className="text-emerald-400 font-bold text-xl mb-6">{group.company}</h3>
+                
+                <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-1 before:w-0.5 before:bg-slate-800">
+                  {group.roles.map((role, i) => (
+                    <div key={role.id} className="relative pl-8">
+                      {/* Dot Indicator ala LinkedIn */}
+                      <div className="absolute left-0 top-2 w-2.5 h-2.5 rounded-full bg-blue-500 border-2 border-slate-950 z-10" />
+                      
+                      <div className="flex flex-col mb-2">
+                        <h4 className="text-xl font-bold text-white">{role.role}</h4>
+                        <div className="flex flex-wrap items-center gap-3 text-sm mt-1">
+                          <span className="text-slate-400 font-mono">{role.period}</span>
+                          <span className="text-slate-600">|</span>
+                          <span className="px-2 py-0.5 bg-blue-900/30 text-blue-300 text-xs rounded border border-blue-900">
+                            {role.type}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <p className="text-slate-400 leading-relaxed text-sm md:text-base">
+                        {role.description}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-slate-400 leading-relaxed text-sm md:text-base">
-                  {exp.description}
-                </p>
               </div>
+
             </div>
           ))}
         </div>
