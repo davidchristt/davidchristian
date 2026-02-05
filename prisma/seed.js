@@ -87,7 +87,7 @@ async function main() {
         period: "Dec 2025 - Jan 2026",
         techStack: "Solidity, Ethereum, EVM, Web3, MetaMask",
         description: "Designed and implemented a blockchain-based transaction flow involving user wallets, treasury management, and merchant settlement using smart contracts. Collaborated in a fast-paced team to deliver a secure Web3 solution.",
-        imageUrl: "/images/decrypt.png" // Bisa gunakan gambar project blockchain kamu
+        imageUrl: "/images/deqrypt.png" // Bisa gunakan gambar project blockchain kamu
       },
       {
         name: "Decentralized Crowdfunding (Campaign DApp)",
