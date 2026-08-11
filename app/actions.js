@@ -8,13 +8,15 @@ const prisma = new PrismaClient()
 export async function getPortfolioData() {
   // Kita ambil semua data dari tabel masing-masing
   const profile = await prisma.profile.findFirst()
-  const experiences = await prisma.experience.findMany()
-  const projects = await prisma.project.findMany()
-  const skills = await prisma.skill.findMany()
-  const organizations = await prisma.organization.findMany()
-  const educations = await prisma.education.findMany()
+  const experiences = await prisma.experience.findMany({ orderBy: [{ order: 'asc' }, { id: 'asc' }] })
+  const projects = await prisma.project.findMany({ orderBy: [{ order: 'asc' }, { id: 'asc' }] })
+  const skills = await prisma.skill.findMany({ orderBy: [{ order: 'asc' }, { id: 'asc' }] })
+  const organizations = await prisma.organization.findMany({ orderBy: [{ order: 'asc' }, { id: 'asc' }] })
+  const educations = await prisma.education.findMany({ orderBy: [{ order: 'asc' }, { id: 'asc' }] })
+  const certifications = await prisma.certification.findMany({ orderBy: [{ order: 'asc' }, { id: 'asc' }] })
+  const languages = await prisma.language.findMany({ orderBy: [{ order: 'asc' }, { id: 'asc' }] })
 
-  return { profile, experiences, projects, skills, organizations, educations }
+  return { profile, experiences, projects, skills, organizations, educations, certifications, languages }
 }
 
 // 2. Fungsi Update Profile (Khusus Admin)
