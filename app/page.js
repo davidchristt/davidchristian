@@ -14,10 +14,10 @@ export default async function Home() {
 
       {/* 2. SKILLS */}
       <section className="max-w-6xl mx-auto px-6 mb-24">
-        <h2 className="text-3xl font-bold text-primary mb-8 border-b border-border pb-4">Technical Skills</h2>
+        <h2 className="text-4xl font-bold text-primary mb-8 border-b border-border pb-4 tracking-tight">Technical Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skills.map((skill) => (
-            <div key={skill.id} className="bg-elevated p-6 rounded-xl border border-border hover:border-accent transition duration-300 group">
+            <div key={skill.id} className="bg-elevated p-6 rounded-xl border border-border hover:border-accent transition-colors duration-300 group">
               <h3 className="text-accent font-bold mb-3 group-hover:text-accent-hover">{skill.category}</h3>
               <p className="text-sm text-muted leading-relaxed font-mono">
                 {skill.items.split(', ').join(' • ')}
@@ -29,7 +29,7 @@ export default async function Home() {
 
       {/* --- SECTION EDUCATION (DENGAN LOGO DI KANAN) --- */}
       <section className="max-w-5xl mx-auto px-6 mb-24">
-        <h2 className="text-3xl font-bold text-primary mb-10 pl-4 border-l-4 border-accent">Education</h2>
+        <h2 className="text-4xl font-bold text-primary mb-10 pl-4 border-l-4 border-accent tracking-tight">Education</h2>
         
         <div className="space-y-8">
           {educations.map((edu) => {
@@ -39,13 +39,13 @@ export default async function Home() {
             const cleanDescription = edu.description.replace(/(GPA: [\d\.\/]+|Average Score: [\d\.]+)[\.,]?\s*/, '');
 
             return (
-            <div key={edu.id} className="bg-elevated p-6 md:p-8 rounded-2xl border border-border hover:bg-accent-soft transition duration-300 flex flex-col md:flex-row gap-6">
+            <div key={edu.id} className="bg-elevated p-6 md:p-8 rounded-2xl border border-border hover:bg-accent-soft transition-colors duration-300 flex flex-col md:flex-row gap-6">
               
               {/* BAGIAN KIRI: Info Utama, Deskripsi, dan GPA */}
               <div className="md:w-3/5 flex flex-col">
                 <div className="flex justify-between items-start mb-3">
                     <div>
-                        <h3 className="text-2xl font-bold text-primary mb-2">{edu.school}</h3>
+                        <h3 className="text-xl font-bold text-primary mb-2">{edu.school}</h3>
                         <p className="text-accent font-medium text-lg">{edu.degree}</p>
                     </div>
                     {/* Periode di Mobile */}
@@ -55,7 +55,7 @@ export default async function Home() {
                 </div>
 
                 {/* Deskripsi dipindah ke sini agar lebih rapi */}
-                <p className="text-muted text-sm leading-relaxed font-medium mb-4">
+                <p className="text-secondary text-sm leading-relaxed font-medium mb-4">
                   {cleanDescription}
                 </p>
 
@@ -99,7 +99,7 @@ export default async function Home() {
 
       {/* 3. WORK EXPERIENCE (LinkedIn Style Grouping) */}
       <section className="max-w-5xl mx-auto px-6 mb-24">
-        <h2 className="text-3xl font-bold text-primary mb-10 pl-4 border-l-4 border-accent">Work Experience</h2>
+        <h2 className="text-4xl font-bold text-primary mb-10 pl-4 border-l-4 border-accent tracking-tight">Work Experience</h2>
         <div className="space-y-12">
           {Object.values(
             experiences.reduce((acc, exp) => {
@@ -115,7 +115,7 @@ export default async function Home() {
               return acc;
             }, {})
           ).map((group, index) => (
-            <div key={index} className="flex flex-col md:flex-row gap-8 bg-elevated p-6 rounded-2xl border border-border hover:bg-accent-soft transition duration-300">
+            <div key={index} className="flex flex-col md:flex-row gap-8 bg-elevated p-6 rounded-2xl border border-border hover:bg-accent-soft transition-colors duration-300">
               
               {/* BAGIAN KIRI: Logo Perusahaan (Satu logo untuk semua role di perusahaan ini) */}
               <div className="w-full md:w-1/3 shrink-0">
@@ -139,7 +139,7 @@ export default async function Home() {
                       <div className="absolute left-0 top-2 w-2.5 h-2.5 rounded-full bg-accent border-2 border-base z-10" />
                       
                       <div className="flex flex-col mb-2">
-                        <h4 className="text-xl font-bold text-primary">{role.role}</h4>
+                        <h4 className="text-lg font-bold text-primary">{role.role}</h4>
                         <div className="flex flex-wrap items-center gap-3 text-sm mt-1">
                           <span className="text-muted font-mono">{role.period}</span>
                           <span className="text-muted">|</span>
@@ -149,7 +149,7 @@ export default async function Home() {
                         </div>
                       </div>
                       
-                      <p className="text-muted leading-relaxed text-sm md:text-base">
+                      <p className="text-secondary leading-relaxed text-sm md:text-base">
                         {role.description}
                       </p>
                     </div>
@@ -164,12 +164,12 @@ export default async function Home() {
 
       {/* 4. PROJECTS */}
       <section id="projects" className="max-w-5xl mx-auto px-6 mb-24 scroll-mt-20">
-        <h2 className="text-3xl font-bold text-primary mb-10 pl-4 border-l-4 border-accent">Featured Projects</h2>
+        <h2 className="text-4xl font-bold text-primary mb-10 pl-4 border-l-4 border-accent tracking-tight">Featured Projects</h2>
         <div className="space-y-16">
           {projects.map((proj) => (
             <div key={proj.id} className="flex flex-col md:flex-row gap-8 items-start group">
               <div className="w-full md:w-5/12 shrink-0">
-                <div className="relative h-64 w-full rounded-xl overflow-hidden border border-border group-hover:border-accent transition duration-300 shadow-2xl bg-base">
+                <div className="relative h-64 w-full rounded-xl overflow-hidden border border-border group-hover:border-accent transition-colors duration-300 shadow-2xl bg-base">
                   <img 
                     src={proj.imageUrl} 
                     alt={proj.name}
@@ -180,20 +180,20 @@ export default async function Home() {
 
               <div className="w-full md:w-7/12">
                 <div className="flex flex-col mb-3">
-                  <h3 className="text-2xl font-bold text-primary group-hover:text-accent transition duration-300">{proj.name}</h3>
+                  <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors duration-300">{proj.name}</h3>
                   <div className="flex justify-between items-center mt-1">
                     <span className="text-accent text-sm font-semibold">{proj.role}</span>
                     <span className="text-xs font-mono text-muted border border-border px-2 py-1 rounded bg-elevated">{proj.period}</span>
                   </div>
                 </div>
                 
-                <p className="text-muted mb-6 leading-relaxed text-sm md:text-base border-l-2 border-border pl-4">
+                <p className="text-secondary mb-6 leading-relaxed text-sm md:text-base border-l-2 border-border pl-4">
                   {proj.description}
                 </p>
                 
                 <div className="flex flex-wrap gap-2">
                   {proj.techStack.split(',').map((stack, i) => (
-                    <span key={i} className="px-3 py-1 bg-elevated text-secondary text-xs rounded-full border border-border hover:border-accent transition cursor-default">
+                    <span key={i} className="px-3 py-1 bg-elevated text-secondary text-xs rounded-full border border-border hover:border-accent transition-colors cursor-default">
                       {stack.trim()}
                     </span>
                   ))}
@@ -206,16 +206,16 @@ export default async function Home() {
 
       {/* 5. ORGANIZATIONS */}
       <section className="max-w-4xl mx-auto px-6">
-         <h2 className="text-3xl font-bold text-primary mb-8 pl-4 border-l-4 border-accent">Organizations</h2>
+         <h2 className="text-4xl font-bold text-primary mb-8 pl-4 border-l-4 border-accent tracking-tight">Organizations</h2>
          <div className="grid gap-4">
             {organizations.map(org => (
-               <div key={org.id} className="bg-elevated p-6 rounded-xl border border-border hover:bg-accent-soft transition">
+               <div key={org.id} className="bg-elevated p-6 rounded-xl border border-border hover:bg-accent-soft transition-colors">
                   <div className="flex justify-between items-start mb-2">
-                     <h3 className="text-xl font-bold text-primary">{org.name}</h3>
+                     <h3 className="text-lg font-bold text-primary">{org.name}</h3>
                      <span className="text-sm text-accent font-mono bg-accent-soft px-2 py-1 rounded">{org.period}</span>
                   </div>
                   <p className="text-secondary font-medium mb-2">{org.role}</p>
-                  <p className="text-muted text-sm">{org.description}</p>
+                  <p className="text-secondary text-sm">{org.description}</p>
                </div>
             ))}
          </div>
@@ -223,11 +223,11 @@ export default async function Home() {
 
       {/* 6. CERTIFICATIONS */}
       {certifications.length > 0 && (
-        <section className="max-w-4xl mx-auto px-6 mt-24">
-          <h2 className="text-3xl font-bold text-primary mb-8 pl-4 border-l-4 border-accent">Certifications</h2>
+        <section className="max-w-4xl mx-auto px-6 mt-32">
+          <h2 className="text-4xl font-bold text-primary mb-8 pl-4 border-l-4 border-accent tracking-tight">Certifications</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {certifications.map((cert) => (
-              <div key={cert.id} className="bg-elevated p-6 rounded-xl border border-border hover:border-accent transition duration-300 flex flex-col">
+              <div key={cert.id} className="bg-elevated p-6 rounded-xl border border-border hover:border-accent transition-colors duration-300 flex flex-col">
                 <div className="flex justify-between items-start gap-4 mb-3">
                   <h3 className="text-lg font-bold text-primary leading-snug">{cert.name}</h3>
                   <span className="text-sm text-accent font-mono bg-accent-soft px-2 py-1 rounded border border-accent/40 whitespace-nowrap">
@@ -243,12 +243,12 @@ export default async function Home() {
 
       {/* 7. LANGUAGES */}
       {languages.length > 0 && (
-        <section className="max-w-4xl mx-auto px-6 mt-24">
-          <h2 className="text-3xl font-bold text-primary mb-8 pl-4 border-l-4 border-accent">Languages</h2>
+        <section className="max-w-4xl mx-auto px-6 mt-32">
+          <h2 className="text-4xl font-bold text-primary mb-8 pl-4 border-l-4 border-accent tracking-tight">Languages</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {languages.map((lang) => (
-              <div key={lang.id} className="bg-elevated p-6 rounded-xl border border-border hover:border-accent transition duration-300 flex justify-between items-center gap-4">
-                <h3 className="text-xl font-bold text-primary">{lang.name}</h3>
+              <div key={lang.id} className="bg-elevated p-6 rounded-xl border border-border hover:border-accent transition-colors duration-300 flex justify-between items-center gap-4">
+                <h3 className="text-lg font-bold text-primary">{lang.name}</h3>
                 <span className="text-sm text-accent font-mono bg-accent-soft px-3 py-1 rounded-full border border-accent/40 whitespace-nowrap">
                   {lang.level}
                 </span>
@@ -268,7 +268,7 @@ export default async function Home() {
         </p>
         
         {/* Social Links Kecil di Bawah */}
-        <div className="flex justify-center gap-6 mt-4 opacity-50 hover:opacity-100 transition duration-300">
+        <div className="flex justify-center gap-6 mt-4 opacity-50 hover:opacity-100 transition-colors duration-300">
            <a href={`https://${profile.linkedin}`} target="_blank" className="text-muted hover:text-accent-hover text-sm">LinkedIn</a>
            
           {profile.github && (
