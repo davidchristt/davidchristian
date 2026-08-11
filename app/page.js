@@ -55,7 +55,7 @@ export default async function Home() {
                 </div>
 
                 {/* Deskripsi dipindah ke sini agar lebih rapi */}
-                <p className="text-secondary text-sm leading-relaxed font-medium mb-4">
+                <p className="text-base font-medium text-primary leading-relaxed mb-4">
                   {cleanDescription}
                 </p>
 
@@ -149,7 +149,7 @@ export default async function Home() {
                         </div>
                       </div>
                       
-                      <p className="text-secondary leading-relaxed text-sm md:text-base">
+                      <p className="text-base font-medium text-primary leading-relaxed">
                         {role.description}
                       </p>
                     </div>
@@ -187,7 +187,7 @@ export default async function Home() {
                   </div>
                 </div>
                 
-                <p className="text-secondary mb-6 leading-relaxed text-sm md:text-base border-l-2 border-border pl-4">
+                <p className="text-base font-medium text-primary mb-6 leading-relaxed border-l-2 border-border pl-4">
                   {proj.description}
                 </p>
                 
@@ -215,7 +215,7 @@ export default async function Home() {
                      <span className="text-sm text-accent font-mono bg-accent-soft px-2 py-1 rounded">{org.period}</span>
                   </div>
                   <p className="text-secondary font-medium mb-2">{org.role}</p>
-                  <p className="text-secondary text-sm">{org.description}</p>
+                  <p className="text-base font-medium text-primary">{org.description}</p>
                </div>
             ))}
          </div>
