@@ -2,7 +2,7 @@ import { getPortfolioData } from './actions'
 import HeroSection from './components/HeroSection' // <--- Import Komponen Baru
 
 export default async function Home() {
-  const { profile, experiences, projects, skills, organizations, educations } = await getPortfolioData()
+  const { profile, experiences, projects, skills, organizations, educations, certifications, languages } = await getPortfolioData()
 
   if (!profile) return <div className="p-10 text-white text-center">Data kosong. Jalankan 'node prisma/seed.js' dulu.</div>
 
@@ -220,6 +220,43 @@ export default async function Home() {
             ))}
          </div>
       </section>
+
+      {/* 6. CERTIFICATIONS */}
+      {certifications.length > 0 && (
+        <section className="max-w-4xl mx-auto px-6 mt-24">
+          <h2 className="text-3xl font-bold text-white mb-8 pl-4 border-l-4 border-cyan-500">Certifications</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {certifications.map((cert) => (
+              <div key={cert.id} className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition duration-300 flex flex-col">
+                <div className="flex justify-between items-start gap-4 mb-3">
+                  <h3 className="text-lg font-bold text-white leading-snug">{cert.name}</h3>
+                  <span className="text-sm text-cyan-400 font-mono bg-cyan-900/20 px-2 py-1 rounded border border-cyan-900/50 whitespace-nowrap">
+                    {cert.year}
+                  </span>
+                </div>
+                <p className="text-slate-400 text-sm mt-auto">{cert.issuer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 7. LANGUAGES */}
+      {languages.length > 0 && (
+        <section className="max-w-4xl mx-auto px-6 mt-24">
+          <h2 className="text-3xl font-bold text-white mb-8 pl-4 border-l-4 border-rose-500">Languages</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {languages.map((lang) => (
+              <div key={lang.id} className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-rose-500/50 transition duration-300 flex justify-between items-center gap-4">
+                <h3 className="text-xl font-bold text-white">{lang.name}</h3>
+                <span className="text-sm text-rose-400 font-mono bg-rose-900/20 px-3 py-1 rounded-full border border-rose-900/50 whitespace-nowrap">
+                  {lang.level}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* --- FOOTER (SENTUHAN TERAKHIR) --- */}
       <footer className="py-8 text-center border-t border-slate-800 mt-20">
