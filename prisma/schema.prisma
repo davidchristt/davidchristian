@@ -28,6 +28,7 @@ model Education {
   period      String
   description String  @db.Text
   imageUrl    String?
+  order       Int     @default(0)
 }
 
 model Experience {
@@ -38,6 +39,7 @@ model Experience {
   type        String
   description String  @db.Text
   imageUrl    String?
+  order       Int     @default(0)
 }
 
 model Project {
@@ -48,6 +50,9 @@ model Project {
   description String  @db.Text
   period      String
   imageUrl    String?
+  repoUrl     String?
+  demoUrl     String?
+  order       Int     @default(0)
 }
 
 model Organization {
@@ -56,10 +61,27 @@ model Organization {
   role        String
   period      String
   description String  @db.Text
+  order       Int     @default(0)
 }
 
 model Skill {
   id       Int    @id @default(autoincrement())
   category String
   items    String
+  order    Int    @default(0)
+}
+
+model Certification {
+  id     Int    @id @default(autoincrement())
+  name   String
+  issuer String
+  year   String
+  order  Int    @default(0)
+}
+
+model Language {
+  id    Int    @id @default(autoincrement())
+  name  String
+  level String
+  order Int    @default(0)
 }
