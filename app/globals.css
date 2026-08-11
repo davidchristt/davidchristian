@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
+/* Palet dasar: dark-dominant (putih - biru - hitam).
+   Nilai mentah ditaruh di :root, lalu dipetakan ke token Tailwind
+   di @theme inline supaya bisa dipakai sebagai utility class. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background */
+  --base: #070b14;      /* near-black kebiruan, warna dasar halaman */
+  --elevated: #0e1626;  /* satu tingkat di atas base, untuk kartu/panel */
+  --edge: #1c2740;      /* garis pembatas kartu dan divider */
+
+  /* Text */
+  --primary: #ffffff;   /* judul dan teks utama */
+  --secondary: #c2cddd; /* body copy */
+  --muted: #7d8aa1;     /* keterangan, metadata, teks sekunder */
+
+  /* Accent biru */
+  --accent: #3b82f6;       /* warna aksi utama: link, tombol, highlight */
+  --accent-hover: #60a5fa; /* versi lebih terang untuk state hover */
+  --accent-soft: rgb(59 130 246 / 0.12); /* transparan, untuk background badge/chip */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Background */
+  --color-base: var(--base);
+  --color-elevated: var(--elevated);
+  --color-border: var(--edge);
+
+  /* Text */
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+
+  /* Accent */
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+
+  /* Font dari next/font (di-set di layout.js) */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--base);
+  color: var(--secondary);
 }
