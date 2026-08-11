@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "David Christian Nathaniel | Developer",
-  description: "Portfolio of David Christian Nathaniel, Full Stack Developer, Blockchain Enthusiast, and Blue Team Cybersecurity Specialist.", 
+  description: "Portfolio of David Christian Nathaniel, final-year Informatics Engineering student and software engineer focused on full-stack development, AI, and blockchain.",
 };
 
 export default function RootLayout({ children }) {
